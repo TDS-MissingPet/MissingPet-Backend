@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MissingPet.DataAccess.Entities;
+using MissingPet.DataAccess.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,9 +12,17 @@ namespace MissingPet.Controllers
     [Authorize]
     public class ValuesController : ApiController
     {
+        private IRepository<Advert> _repo;
+
+        public ValuesController(IRepository<Advert> repo)
+        {
+            _repo = repo;
+        }
+
         // GET api/values
         public IEnumerable<string> Get()
         {
+            _repo.Add(new Advert());
             return new string[] { "value1", "value2" };
         }
 
