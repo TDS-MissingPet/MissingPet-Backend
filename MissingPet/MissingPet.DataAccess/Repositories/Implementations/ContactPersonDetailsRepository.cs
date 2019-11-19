@@ -62,6 +62,11 @@ namespace MissingPet.DataAccess.Repositories.Implementations
 
         public IEnumerable<ContactPersonDetails> GetAll() => _context.ContactPersonDetails.AsEnumerable();
 
+        public void Save()
+        {
+            _context.SaveChanges();
+        }
+
         public ContactPersonDetails Update(ContactPersonDetails item)
         {
             throw new NotImplementedException();

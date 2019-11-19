@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissingPet.DataAccess", "Mi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissingPet.BLL", "MissingPet.BLL\MissingPet.BLL.csproj", "{6C857F80-8F39-437E-AE1F-BB54A8257447}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissingPet.Domain", "MissingPet.Domain\MissingPet.Domain.csproj", "{0929AFE7-C4EE-4AD5-975A-552C9911F5B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6C857F80-8F39-437E-AE1F-BB54A8257447}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C857F80-8F39-437E-AE1F-BB54A8257447}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C857F80-8F39-437E-AE1F-BB54A8257447}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0929AFE7-C4EE-4AD5-975A-552C9911F5B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0929AFE7-C4EE-4AD5-975A-552C9911F5B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0929AFE7-C4EE-4AD5-975A-552C9911F5B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0929AFE7-C4EE-4AD5-975A-552C9911F5B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

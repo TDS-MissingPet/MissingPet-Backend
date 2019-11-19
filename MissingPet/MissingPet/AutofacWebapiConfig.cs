@@ -1,5 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
+using MissingPet.BLL.Services;
+using MissingPet.BLL.Services.Implementations;
 using MissingPet.DataAccess.Entities;
 using MissingPet.DataAccess.Repositories;
 using MissingPet.DataAccess.Repositories.Implementations;
@@ -40,6 +42,13 @@ namespace MissingPet
                    .InstancePerRequest();
             builder.RegisterType<ContactPersonDetailsRepository>()
                    .As<IRepository<ContactPersonDetails>>()
+                   .InstancePerRequest();
+
+            builder.RegisterType<ImageUploadService>()
+                   .As<IImageUploadService>()
+                   .InstancePerRequest();
+            builder.RegisterType<AdvertImageService>()
+                   .As<IAdvertImageService>()
                    .InstancePerRequest();
 
             Container = builder.Build();

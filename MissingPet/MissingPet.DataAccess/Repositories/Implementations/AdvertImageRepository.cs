@@ -66,5 +66,10 @@ namespace MissingPet.DataAccess.Repositories.Implementations
         {
             throw new NotImplementedException();
         }
+
+        public void Save()
+        {
+            _context.SaveChanges();
+        }
     }
 }

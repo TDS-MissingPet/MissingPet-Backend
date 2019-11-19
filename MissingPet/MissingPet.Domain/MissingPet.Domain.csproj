@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6C857F80-8F39-437E-AE1F-BB54A8257447}</ProjectGuid>
+    <ProjectGuid>{0929AFE7-C4EE-4AD5-975A-552C9911F5B3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MissingPet.BLL</RootNamespace>
-    <AssemblyName>MissingPet.BLL</AssemblyName>
+    <RootNamespace>MissingPet.Domain</RootNamespace>
+    <AssemblyName>MissingPet.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,25 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AdvertImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IAdvertImageService.cs" />
-    <Compile Include="Services\IAdvertService.cs" />
-    <Compile Include="Services\IImageUploadService.cs" />
-    <Compile Include="Services\Implementations\AdvertImageService.cs" />
-    <Compile Include="Services\Implementations\ImageUploadService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MissingPet.DataAccess\MissingPet.DataAccess.csproj">
-      <Project>{89AAA68D-66F3-41F3-8758-044D7185E317}</Project>
-      <Name>MissingPet.DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MissingPet.Domain\MissingPet.Domain.csproj">
-      <Project>{0929AFE7-C4EE-4AD5-975A-552C9911F5B3}</Project>
-      <Name>MissingPet.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

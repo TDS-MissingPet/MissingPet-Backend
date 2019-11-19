@@ -218,9 +218,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MissingPet.BLL\MissingPet.BLL.csproj">
+      <Project>{6C857F80-8F39-437E-AE1F-BB54A8257447}</Project>
+      <Name>MissingPet.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MissingPet.DataAccess\MissingPet.DataAccess.csproj">
       <Project>{89AAA68D-66F3-41F3-8758-044D7185E317}</Project>
       <Name>MissingPet.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MissingPet.Domain\MissingPet.Domain.csproj">
+      <Project>{0929AFE7-C4EE-4AD5-975A-552C9911F5B3}</Project>
+      <Name>MissingPet.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\MissingPet.Identity\MissingPet.Identity.csproj">
       <Project>{DEB44324-DD06-4E5C-840E-DC7F9AA229D9}</Project>

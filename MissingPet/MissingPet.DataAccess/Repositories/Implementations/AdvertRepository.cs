@@ -62,6 +62,11 @@ namespace MissingPet.DataAccess.Repositories.Implementations
 
         public IEnumerable<Advert> GetAll() => _context.Adverts.AsEnumerable();
 
+        public void Save()
+        {
+            _context.SaveChanges();
+        }
+
         public Advert Update(Advert item)
         {
             throw new NotImplementedException();

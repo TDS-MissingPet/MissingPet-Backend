@@ -62,6 +62,11 @@ namespace MissingPet.DataAccess.Repositories.Implementations
 
         public IEnumerable<Tag> GetAll() => _context.Tags.AsEnumerable();
 
+        public void Save()
+        {
+            _context.SaveChanges();
+        }
+
         public Tag Update(Tag item)
         {
             throw new NotImplementedException();

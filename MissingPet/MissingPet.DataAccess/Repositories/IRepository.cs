@@ -9,5 +9,6 @@ namespace MissingPet.DataAccess.Repositories
         int Delete(int id);
         int Add(T item);
         T Update(T item);
+        void Save();
     }
 }
