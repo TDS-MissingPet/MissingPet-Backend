@@ -10,7 +10,8 @@ using System.Web.Http;
 
 namespace MissingPet.Controllers
 {
-    [Route("tags")]
+    [Authorize]
+    [Route("api/tags")]
     public class TagController : ApiController
     {
         private readonly ITagService _tagService;

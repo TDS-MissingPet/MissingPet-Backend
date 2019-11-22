@@ -10,7 +10,8 @@ using System.Web.Http;
 
 namespace MissingPet.Controllers
 {
-    [Route("adverts")]
+    [Authorize]
+    [Route("api/adverts")]
     public class AdvertController : ApiController
     {
         private readonly IAdvertService _advertService;

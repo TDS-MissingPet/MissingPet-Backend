@@ -218,6 +218,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\missing-pet - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\missing-pet - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\missing-pet - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MissingPet.BLL\MissingPet.BLL.csproj">
