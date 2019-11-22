@@ -19,7 +19,7 @@ namespace MissingPet.BLL.Services.Implementations
             _repository = repository;
         }
 
-        public async Task Add(AdvertImage image)
+        public async Task<string> Add(AdvertImage image)
         {
             if(image == null)
             {
@@ -37,6 +37,8 @@ namespace MissingPet.BLL.Services.Implementations
 
             _repository.Add(imageEntity);
             _repository.Save();
+
+            return imageUrl;
         }
     }
 }

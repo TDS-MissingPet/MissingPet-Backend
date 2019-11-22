@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AdvertImage.cs" />
+    <Compile Include="Models\Advert.cs" />
+    <Compile Include="Models\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

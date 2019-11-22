@@ -13,7 +13,7 @@ namespace MissingPet.DataAccess.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201911221725191_Init"; }
+            get { return "201911221751553_Init"; }
         }
         
         string IMigrationMetadata.Source

@@ -56,9 +56,9 @@
     <Compile Include="Entities\AccountEntity.cs" />
     <Compile Include="Entities\AccountPhoneNumberEntity.cs" />
     <Compile Include="Entities\TagEntity.cs" />
-    <Compile Include="Migrations\201911221725191_Init.cs" />
-    <Compile Include="Migrations\201911221725191_Init.Designer.cs">
-      <DependentUpon>201911221725191_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201911221751553_Init.cs" />
+    <Compile Include="Migrations\201911221751553_Init.Designer.cs">
+      <DependentUpon>201911221751553_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MissingPetContext.cs" />
@@ -76,8 +76,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911221725191_Init.resx">
-      <DependentUpon>201911221725191_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911221751553_Init.resx">
+      <DependentUpon>201911221751553_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

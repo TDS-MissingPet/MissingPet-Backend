@@ -56,6 +56,12 @@ namespace MissingPet
             builder.RegisterType<AccountService>()
                    .As<IAccountService>()
                    .InstancePerRequest();
+            builder.RegisterType<AdvertService>()
+                   .As<IAdvertService>()
+                   .InstancePerRequest();
+            builder.RegisterType<TagService>()
+                   .As<ITagService>()
+                   .InstancePerRequest();
 
             Container = builder.Build();
 

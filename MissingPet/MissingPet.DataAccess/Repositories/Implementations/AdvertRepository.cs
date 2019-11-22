@@ -1,6 +1,7 @@
 ﻿using MissingPet.DataAccess.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,17 @@ namespace MissingPet.DataAccess.Repositories.Implementations
                 throw new ArgumentNullException(nameof(item));
             }
 
+            var tags = new List<TagEntity>();
+
+            if (item.Tags.Any())
+            {
+                foreach(var tag in item.Tags)
+                {
+                    tags.Add(_context.Tags.FirstOrDefault(x => x.Value == tag.Value) ?? tag);
+                }
+            }
+
+            item.Tags = tags;
             var result = _context.Adverts.Add(item);
             _context.SaveChanges();
 

@@ -31,6 +31,13 @@ namespace MissingPet.DataAccess
             modelBuilder.Entity<TagEntity>().ToTable("Tags");
             modelBuilder.Entity<AccountPhoneNumberEntity>().ToTable("AccountPhoneNumbers");
 
+            modelBuilder.Entity<AdvertEntity>()
+                .HasMany<TagEntity>(s => s.Tags)
+                .WithMany(c => c.Adverts)
+                .Map(cs =>
+                {
+                    cs.ToTable("AdvertTags");
+                });
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace MissingPet.BLL.Services
 {
-    public interface IAdvertService
+    public interface ITagService
     {
-        int Add(Advert advert);
+        IEnumerable<Tag> GetAll();
     }
 }

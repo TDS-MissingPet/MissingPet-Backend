@@ -51,7 +51,10 @@
     <Compile Include="Services\IImageUploadService.cs" />
     <Compile Include="Services\Implementations\AccountService.cs" />
     <Compile Include="Services\Implementations\AdvertImageService.cs" />
+    <Compile Include="Services\Implementations\AdvertService.cs" />
     <Compile Include="Services\Implementations\ImageUploadService.cs" />
+    <Compile Include="Services\Implementations\TagService.cs" />
+    <Compile Include="Services\ITagService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

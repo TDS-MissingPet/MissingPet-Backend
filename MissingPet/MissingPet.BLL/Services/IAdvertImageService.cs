@@ -6,6 +6,6 @@ namespace MissingPet.BLL.Services
 {
     public interface IAdvertImageService
     {
-        Task Add(Domain.Models.AdvertImage image);
+        Task<string> Add(Domain.Models.AdvertImage image);
     }
 }

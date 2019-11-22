@@ -1,4 +1,6 @@
-﻿namespace MissingPet.DataAccess.Entities
+﻿using System.Collections.Generic;
+
+namespace MissingPet.DataAccess.Entities
 {
     public class TagEntity
     {
@@ -6,8 +8,6 @@
 
         public string Value { get; set; }
 
-        public int AdvertId { get; set; }
-
-        public virtual AdvertEntity Advertisements { get; set; }
+        public virtual List<AdvertEntity> Adverts { get; set; }
     }
 }
