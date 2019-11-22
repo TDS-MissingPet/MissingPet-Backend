@@ -15,10 +15,23 @@ namespace MissingPet.DataAccess
 
         }
 
-        public DbSet<Advert> Adverts { get; set; }
-        public DbSet<AdvertAddressDetails> AdvertAddressDetails { get; set; }
-        public DbSet<AdvertImage> AdvertImage { get; set; }
-        public DbSet<ContactPersonDetails> ContactPersonDetails { get; set; }
-        public DbSet<Tag> Tags { get; set; }
+        public DbSet<AdvertEntity> Adverts { get; set; }
+        public DbSet<AdvertAddressDetailsEntity> AdvertAddressDetails { get; set; }
+        public DbSet<AdvertImageEntity> AdvertImage { get; set; }
+        public DbSet<AccountEntity> Accounts { get; set; }
+        public DbSet<TagEntity> Tags { get; set; }
+        public DbSet<AccountPhoneNumberEntity> AccountPhoneNumbers { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<AdvertEntity>().ToTable("Adverts");
+            modelBuilder.Entity<AdvertAddressDetailsEntity>().ToTable("AdvertAddressDetails");
+            modelBuilder.Entity<AdvertImageEntity>().ToTable("AdvertImage");
+            modelBuilder.Entity<AccountEntity>().ToTable("Accounts");
+            modelBuilder.Entity<TagEntity>().ToTable("Tags");
+            modelBuilder.Entity<AccountPhoneNumberEntity>().ToTable("AccountPhoneNumbers");
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

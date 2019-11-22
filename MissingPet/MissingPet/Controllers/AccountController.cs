@@ -13,6 +13,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using MissingPet.BLL.Services;
 using MissingPet.Identity.Models;
 using MissingPet.Models;
 using MissingPet.Providers;
@@ -27,8 +28,11 @@ namespace MissingPet.Controllers
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
-        public AccountController()
+        private IAccountService _accountService;
+
+        public AccountController(IAccountService accountService)
         {
+            _accountService = accountService;
         }
 
         public AccountController(ApplicationUserManager userManager,
@@ -82,7 +86,7 @@ namespace MissingPet.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
@@ -90,6 +94,13 @@ namespace MissingPet.Controllers
             {
                 return GetErrorResult(result);
             }
+
+            _accountService.Add(new Domain.Models.Account()
+            {
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                PhoneNumber = model.PhoneNumber
+            });
 
             return Ok();
         }

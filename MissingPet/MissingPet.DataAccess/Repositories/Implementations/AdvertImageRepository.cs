@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MissingPet.DataAccess.Repositories.Implementations
 {
-    public class AdvertImageRepository : IRepository<AdvertImage>
+    public class AdvertImageRepository : IRepository<AdvertImageEntity>
     {
         private MissingPetContext _context;
 
@@ -17,7 +17,7 @@ namespace MissingPet.DataAccess.Repositories.Implementations
             _context = new MissingPetContext();
         }
 
-        public int Add(AdvertImage item)
+        public int Add(AdvertImageEntity item)
         {
             if(item == null)
             {
@@ -50,7 +50,7 @@ namespace MissingPet.DataAccess.Repositories.Implementations
             return id;
         }
 
-        public AdvertImage Get(int id)
+        public AdvertImageEntity Get(int id)
         {
             if (id <= 0)
             {
@@ -60,9 +60,9 @@ namespace MissingPet.DataAccess.Repositories.Implementations
             return _context.AdvertImage.FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<AdvertImage> GetAll() => _context.AdvertImage.AsEnumerable();
+        public IEnumerable<AdvertImageEntity> GetAll() => _context.AdvertImage.AsEnumerable();
 
-        public AdvertImage Update(AdvertImage item)
+        public AdvertImageEntity Update(AdvertImageEntity item)
         {
             throw new NotImplementedException();
         }

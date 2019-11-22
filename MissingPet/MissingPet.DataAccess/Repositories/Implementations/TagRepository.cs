@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MissingPet.DataAccess.Repositories.Implementations
 {
-    public class TagRepository : IRepository<Tag>
+    public class TagRepository : IRepository<TagEntity>
     {
         private MissingPetContext _context;
 
@@ -17,7 +17,7 @@ namespace MissingPet.DataAccess.Repositories.Implementations
             _context = new MissingPetContext();
         }
 
-        public int Add(Tag item)
+        public int Add(TagEntity item)
         {
             if(item == null)
             {
@@ -50,7 +50,7 @@ namespace MissingPet.DataAccess.Repositories.Implementations
             return id;
         }
 
-        public Tag Get(int id)
+        public TagEntity Get(int id)
         {
             if (id <= 0)
             {
@@ -60,14 +60,14 @@ namespace MissingPet.DataAccess.Repositories.Implementations
             return _context.Tags.FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<Tag> GetAll() => _context.Tags.AsEnumerable();
+        public IEnumerable<TagEntity> GetAll() => _context.Tags.AsEnumerable();
 
         public void Save()
         {
             _context.SaveChanges();
         }
 
-        public Tag Update(Tag item)
+        public TagEntity Update(TagEntity item)
         {
             throw new NotImplementedException();
         }

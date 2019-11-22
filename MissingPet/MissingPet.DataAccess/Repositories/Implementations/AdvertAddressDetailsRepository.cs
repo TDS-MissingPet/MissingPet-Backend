@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MissingPet.DataAccess.Repositories.Implementations
 {
-    public class AdvertAddressDetailsRepository : IRepository<AdvertAddressDetails>
+    public class AdvertAddressDetailsRepository : IRepository<AdvertAddressDetailsEntity>
     {
         private MissingPetContext _context;
 
@@ -17,7 +17,7 @@ namespace MissingPet.DataAccess.Repositories.Implementations
             _context = new MissingPetContext();
         }
 
-        public int Add(AdvertAddressDetails item)
+        public int Add(AdvertAddressDetailsEntity item)
         {
             if(item == null)
             {
@@ -50,7 +50,7 @@ namespace MissingPet.DataAccess.Repositories.Implementations
             return id;
         }
 
-        public AdvertAddressDetails Get(int id)
+        public AdvertAddressDetailsEntity Get(int id)
         {
             if (id <= 0)
             {
@@ -60,14 +60,14 @@ namespace MissingPet.DataAccess.Repositories.Implementations
             return _context.AdvertAddressDetails.FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<AdvertAddressDetails> GetAll() => _context.AdvertAddressDetails.AsEnumerable();
+        public IEnumerable<AdvertAddressDetailsEntity> GetAll() => _context.AdvertAddressDetails.AsEnumerable();
 
         public void Save()
         {
             _context.SaveChanges();
         }
 
-        public AdvertAddressDetails Update(AdvertAddressDetails item)
+        public AdvertAddressDetailsEntity Update(AdvertAddressDetailsEntity item)
         {
             throw new NotImplementedException();
         }

@@ -1,6 +1,6 @@
 ﻿namespace MissingPet.DataAccess.Entities
 {
-    public class AdvertImage
+    public class AdvertImageEntity
     {
         public int Id { get; set; }
 
@@ -10,6 +10,6 @@
 
         public int AdvertId { get; set; }
 
-        public virtual Advert Advertisement { get; set; }
+        public virtual AdvertEntity Advertisement { get; set; }
     }
 }

@@ -8,23 +8,23 @@ using System.Threading.Tasks;
 
 namespace MissingPet.DataAccess.Repositories.Implementations
 {
-    public class AdvertRepository : IRepository<AdvertEntity>
+    public class AccountRepository : IRepository<AccountEntity>
     {
         private MissingPetContext _context;
 
-        public AdvertRepository()
+        public AccountRepository()
         {
             _context = new MissingPetContext();
         }
 
-        public int Add(AdvertEntity item)
+        public int Add(AccountEntity item)
         {
             if(item == null)
             {
                 throw new ArgumentNullException(nameof(item));
             }
 
-            var result = _context.Adverts.Add(item);
+            var result = _context.Accounts.Add(item);
             _context.SaveChanges();
 
             return result.Id;
@@ -32,42 +32,30 @@ namespace MissingPet.DataAccess.Repositories.Implementations
 
         public int Delete(int id)
         {
-            if(id <= 0)
-            {
-                throw new ArgumentException(nameof(id));
-            }
-
-            var itemToDelete = _context.Adverts.FirstOrDefault(x => x.Id == id);
-
-            if(itemToDelete == null)
-            {
-                throw new KeyNotFoundException($"Advert with id: {id} was not found in database.");
-            }
-
-            _context.Adverts.Remove(itemToDelete);
-            _context.SaveChanges();
-
-            return id;
+            throw new NotImplementedException();
         }
 
-        public AdvertEntity Get(int id)
+        public AccountEntity Get(int id)
         {
             if (id <= 0)
             {
                 throw new ArgumentException(nameof(id));
             }
 
-            return _context.Adverts.FirstOrDefault(x => x.Id == id);
+            return _context.Accounts.FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<AdvertEntity> GetAll() => _context.Adverts.AsEnumerable();
+        public IEnumerable<AccountEntity> GetAll()
+        {
+            throw new NotImplementedException();
+        }
 
         public void Save()
         {
             _context.SaveChanges();
         }
 
-        public AdvertEntity Update(AdvertEntity item)
+        public AccountEntity Update(AccountEntity item)
         {
             throw new NotImplementedException();
         }

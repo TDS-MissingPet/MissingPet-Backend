@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MissingPet.DataAccess.Entities
 {
-    public class Advert
+    public class AdvertEntity
     {
         public int Id { get; set; }
 
@@ -17,10 +17,12 @@ namespace MissingPet.DataAccess.Entities
 
         public DateTime CreationDate { get; set; }
 
-        public virtual List<ContactPersonDetails> ContactPersonsDetails { get; set; }
+        public virtual List<AdvertImageEntity> AdvertImages { get; set; }
 
-        public virtual List<AdvertImage> AdvertImages { get; set; }
+        public virtual List<TagEntity> Tags { get; set; }
 
-        public virtual List<Tag> Tags { get; set; }
+        public int AccountId { get; set; }
+
+        public virtual AccountEntity Account { get; set; }
     }
 }

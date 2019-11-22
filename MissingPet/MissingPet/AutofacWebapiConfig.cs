@@ -29,19 +29,22 @@ namespace MissingPet
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             builder.RegisterType<AdvertRepository>()
-                   .As<IRepository<Advert>>()
+                   .As<IRepository<AdvertEntity>>()
                    .InstancePerRequest();
             builder.RegisterType<AdvertAddressDetailsRepository>()
-                   .As<IRepository<AdvertAddressDetails>>()
+                   .As<IRepository<AdvertAddressDetailsEntity>>()
                    .InstancePerRequest();
             builder.RegisterType<TagRepository>()
-                   .As<IRepository<Tag>>()
+                   .As<IRepository<TagEntity>>()
                    .InstancePerRequest();
             builder.RegisterType<AdvertImageRepository>()
-                   .As<IRepository<AdvertImage>>()
+                   .As<IRepository<AdvertImageEntity>>()
                    .InstancePerRequest();
-            builder.RegisterType<ContactPersonDetailsRepository>()
-                   .As<IRepository<ContactPersonDetails>>()
+            builder.RegisterType<AccountRepository>()
+                   .As<IRepository<AccountEntity>>()
+                   .InstancePerRequest();
+            builder.RegisterType<AccountPhoneNumberRepository>()
+                   .As<IRepository<AccountPhoneNumberEntity>>()
                    .InstancePerRequest();
 
             builder.RegisterType<ImageUploadService>()
@@ -49,6 +52,9 @@ namespace MissingPet
                    .InstancePerRequest();
             builder.RegisterType<AdvertImageService>()
                    .As<IAdvertImageService>()
+                   .InstancePerRequest();
+            builder.RegisterType<AccountService>()
+                   .As<IAccountService>()
                    .InstancePerRequest();
 
             Container = builder.Build();

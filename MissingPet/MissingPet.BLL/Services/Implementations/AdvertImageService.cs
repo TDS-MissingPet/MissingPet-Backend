@@ -11,9 +11,9 @@ namespace MissingPet.BLL.Services.Implementations
     public class AdvertImageService : IAdvertImageService
     {
         private readonly IImageUploadService _imageUploadService;
-        private readonly IRepository<DataAccess.Entities.AdvertImage> _repository;
+        private readonly IRepository<DataAccess.Entities.AdvertImageEntity> _repository;
 
-        public AdvertImageService(IImageUploadService imageUploadService, IRepository<DataAccess.Entities.AdvertImage> repository)
+        public AdvertImageService(IImageUploadService imageUploadService, IRepository<DataAccess.Entities.AdvertImageEntity> repository)
         {
             _imageUploadService = imageUploadService;
             _repository = repository;
@@ -28,7 +28,7 @@ namespace MissingPet.BLL.Services.Implementations
 
             var imageUrl = await _imageUploadService.Upload(image.ImageData);
 
-            var imageEntity = new DataAccess.Entities.AdvertImage()
+            var imageEntity = new DataAccess.Entities.AdvertImageEntity()
             {
                 Url = imageUrl,
                 Name = image.Name,
