@@ -19,6 +19,10 @@ namespace MissingPet.DataAccess.Entities
 
         public virtual List<AdvertImageEntity> AdvertImages { get; set; }
 
+        public int AdvertAddressDetailsId { get; set; }
+
+        public virtual AdvertAddressDetailsEntity AdvertAddressDetails { get; set; }
+
         public virtual List<TagEntity> Tags { get; set; }
 
         public int AccountId { get; set; }

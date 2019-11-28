@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MissingPet.Domain.Models
 {
-    public class Advert
+    public class AdvertDetails
     {
         public string Title { get; set; }
 
@@ -20,10 +20,10 @@ namespace MissingPet.Domain.Models
 
         public List<string> Tags { get; set; }
 
-        public Account Account { get; set; }
+        public AccountDetails AccountDetails { get; set; }
 
         public AdvertAddressDetails AdvertAddressDetails { get; set; }
 
-        public string ImageUrl { get; set; }
+        public List<ImageInfo> AdvertImages { get; set; }
     }
 }

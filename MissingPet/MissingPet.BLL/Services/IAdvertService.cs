@@ -1,14 +1,14 @@
 ﻿using MissingPet.Domain.Models;
-using System;
+using MissingPet.Domain.RequestModels;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MissingPet.BLL.Services
 {
     public interface IAdvertService
     {
         int Add(Advert advert);
+        IEnumerable<Advert> GetAll(AdvertsFilterRequestModel filters, AdvertsSortRequestModel sortInfo, int pageNumber, int pageSize);
+
+        AdvertDetails GetById(int id);
     }
 }

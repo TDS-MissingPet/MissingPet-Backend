@@ -38,6 +38,15 @@ namespace MissingPet.DataAccess
                 {
                     cs.ToTable("AdvertTags");
                 });
+
+            modelBuilder.Entity<AdvertEntity>()
+                .HasMany<AdvertImageEntity>(s => s.AdvertImages)
+                .WithRequired(c => c.Advertisement)
+                .HasForeignKey(c => c.AdvertId);
+
+            modelBuilder.Entity<AdvertEntity>()
+                .HasOptional(s => s.AdvertAddressDetails)
+                .WithRequired(c => c.Advertisement);
             base.OnModelCreating(modelBuilder);
         }
     }

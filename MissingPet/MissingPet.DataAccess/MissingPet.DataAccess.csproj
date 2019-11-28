@@ -56,9 +56,13 @@
     <Compile Include="Entities\AccountEntity.cs" />
     <Compile Include="Entities\AccountPhoneNumberEntity.cs" />
     <Compile Include="Entities\TagEntity.cs" />
-    <Compile Include="Migrations\201911222029202_Init.cs" />
-    <Compile Include="Migrations\201911222029202_Init.Designer.cs">
-      <DependentUpon>201911222029202_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201911281612430_Init.cs" />
+    <Compile Include="Migrations\201911281612430_Init.Designer.cs">
+      <DependentUpon>201911281612430_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911281641038_Removed_Unnecessary_Foreign_Key.cs" />
+    <Compile Include="Migrations\201911281641038_Removed_Unnecessary_Foreign_Key.Designer.cs">
+      <DependentUpon>201911281641038_Removed_Unnecessary_Foreign_Key.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MissingPetContext.cs" />
@@ -76,8 +80,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911222029202_Init.resx">
-      <DependentUpon>201911222029202_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911281612430_Init.resx">
+      <DependentUpon>201911281612430_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911281641038_Removed_Unnecessary_Foreign_Key.resx">
+      <DependentUpon>201911281641038_Removed_Unnecessary_Foreign_Key.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -41,11 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AccountDetails.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AdvertAddressDetails.cs" />
+    <Compile Include="Models\AdvertDetails.cs" />
     <Compile Include="Models\AdvertImage.cs" />
     <Compile Include="Models\Advert.cs" />
+    <Compile Include="Models\ImageInfo.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestModels\AdvertsSortRequestModel.cs" />
+    <Compile Include="RequestModels\AdvertsFilterRequestModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

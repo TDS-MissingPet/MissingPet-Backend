@@ -45,7 +45,7 @@ namespace MissingPet.DataAccess.Repositories.Implementations
             return _context.Accounts.FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<AccountEntity> GetAll()
+        public IQueryable<AccountEntity> GetAll()
         {
             throw new NotImplementedException();
         }

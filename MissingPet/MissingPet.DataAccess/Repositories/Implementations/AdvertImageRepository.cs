@@ -60,7 +60,7 @@ namespace MissingPet.DataAccess.Repositories.Implementations
             return _context.AdvertImage.FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<AdvertImageEntity> GetAll() => _context.AdvertImage.AsEnumerable();
+        public IQueryable<AdvertImageEntity> GetAll() => _context.AdvertImage.AsQueryable();
 
         public AdvertImageEntity Update(AdvertImageEntity item)
         {

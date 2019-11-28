@@ -40,11 +40,25 @@ namespace MissingPet.DataAccess.Migrations
                         Reward = c.Double(nullable: false),
                         IsClosed = c.Boolean(nullable: false),
                         CreationDate = c.DateTime(nullable: false),
+                        AdvertAddressDetailsId = c.Int(nullable: false),
                         AccountId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Accounts", t => t.AccountId, cascadeDelete: true)
                 .Index(t => t.AccountId);
+            
+            CreateTable(
+                "dbo.AdvertAddressDetails",
+                c => new
+                    {
+                        Id = c.Int(nullable: false),
+                        City = c.String(),
+                        Street = c.String(),
+                        AdvertId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Adverts", t => t.Id)
+                .Index(t => t.Id);
             
             CreateTable(
                 "dbo.AdvertImage",
@@ -70,20 +84,6 @@ namespace MissingPet.DataAccess.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.AdvertAddressDetails",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        City = c.String(),
-                        Street = c.String(),
-                        AdvertId = c.Int(nullable: false),
-                        Advertisement_Id = c.Int(),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Adverts", t => t.Advertisement_Id)
-                .Index(t => t.Advertisement_Id);
-            
-            CreateTable(
                 "dbo.AdvertTags",
                 c => new
                     {
@@ -100,22 +100,22 @@ namespace MissingPet.DataAccess.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.AdvertAddressDetails", "Advertisement_Id", "dbo.Adverts");
             DropForeignKey("dbo.AdvertTags", "TagEntity_Id", "dbo.Tags");
             DropForeignKey("dbo.AdvertTags", "AdvertEntity_Id", "dbo.Adverts");
             DropForeignKey("dbo.AdvertImage", "Advertisement_Id", "dbo.Adverts");
+            DropForeignKey("dbo.AdvertAddressDetails", "Id", "dbo.Adverts");
             DropForeignKey("dbo.Adverts", "AccountId", "dbo.Accounts");
             DropForeignKey("dbo.AccountPhoneNumbers", "AccountId", "dbo.Accounts");
             DropIndex("dbo.AdvertTags", new[] { "TagEntity_Id" });
             DropIndex("dbo.AdvertTags", new[] { "AdvertEntity_Id" });
-            DropIndex("dbo.AdvertAddressDetails", new[] { "Advertisement_Id" });
             DropIndex("dbo.AdvertImage", new[] { "Advertisement_Id" });
+            DropIndex("dbo.AdvertAddressDetails", new[] { "Id" });
             DropIndex("dbo.Adverts", new[] { "AccountId" });
             DropIndex("dbo.AccountPhoneNumbers", new[] { "AccountId" });
             DropTable("dbo.AdvertTags");
-            DropTable("dbo.AdvertAddressDetails");
             DropTable("dbo.Tags");
             DropTable("dbo.AdvertImage");
+            DropTable("dbo.AdvertAddressDetails");
             DropTable("dbo.Adverts");
             DropTable("dbo.Accounts");
             DropTable("dbo.AccountPhoneNumbers");

@@ -60,7 +60,7 @@ namespace MissingPet.DataAccess.Repositories.Implementations
             return _context.Tags.FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<TagEntity> GetAll() => _context.Tags.AsEnumerable();
+        public IQueryable<TagEntity> GetAll() => _context.Tags.AsQueryable();
 
         public void Save()
         {

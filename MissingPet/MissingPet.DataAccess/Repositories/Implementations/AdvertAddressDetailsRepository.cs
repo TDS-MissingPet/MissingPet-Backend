@@ -60,7 +60,7 @@ namespace MissingPet.DataAccess.Repositories.Implementations
             return _context.AdvertAddressDetails.FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<AdvertAddressDetailsEntity> GetAll() => _context.AdvertAddressDetails.AsEnumerable();
+        public IQueryable<AdvertAddressDetailsEntity> GetAll() => _context.AdvertAddressDetails.AsQueryable();
 
         public void Save()
         {

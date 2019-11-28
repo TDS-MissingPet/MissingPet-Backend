@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace MissingPet.DataAccess.Repositories
 {
     public interface IRepository<T>
     {
-        IEnumerable<T> GetAll();
+        IQueryable<T> GetAll();
         T Get(int id);
         int Delete(int id);
         int Add(T item);

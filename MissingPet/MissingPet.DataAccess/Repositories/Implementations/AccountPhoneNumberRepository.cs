@@ -40,7 +40,7 @@ namespace MissingPet.DataAccess.Repositories.Implementations
             throw new NotImplementedException();
         }
 
-        public IEnumerable<AccountPhoneNumberEntity> GetAll()
+        public IQueryable<AccountPhoneNumberEntity> GetAll()
         {
             throw new NotImplementedException();
         }

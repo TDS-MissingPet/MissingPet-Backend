@@ -1,5 +1,6 @@
 ﻿using MissingPet.BLL.Services;
 using MissingPet.Domain.Models;
+using MissingPet.Domain.RequestModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,47 @@ namespace MissingPet.Controllers
                 return Request.CreateResponse(System.Net.HttpStatusCode.BadRequest, exception.Message);
             }
             catch(Exception exception)
+            {
+                return Request.CreateResponse(System.Net.HttpStatusCode.InternalServerError, exception);
+            }
+        }
+
+        public HttpResponseMessage Get([FromUri] AdvertsFilterRequestModel filters, [FromUri] AdvertsSortRequestModel sortInfo,
+            [FromUri] int pageNumber = 0, [FromUri] int pageSize = 10)
+        {
+            try
+            {
+                var result = _advertService.GetAll(filters, sortInfo, pageNumber, pageSize);
+                return Request.CreateResponse(System.Net.HttpStatusCode.OK, result);
+            }
+            catch (ArgumentNullException exception)
+            {
+                return Request.CreateResponse(System.Net.HttpStatusCode.BadRequest, exception.Message);
+            }
+            catch (Exception exception)
+            {
+                return Request.CreateResponse(System.Net.HttpStatusCode.InternalServerError, exception.Message);
+            }
+        }
+
+        [Route("api/adverts/{advertId}")]
+        public HttpResponseMessage Get(int advertId)
+        {
+            if(advertId == 0)
+            {
+                return Request.CreateResponse(System.Net.HttpStatusCode.BadRequest, "Please provide advert id");
+            }
+
+            try
+            {
+                var result = _advertService.GetById(advertId);
+                return Request.CreateResponse(System.Net.HttpStatusCode.OK, result);
+            }
+            catch (ArgumentNullException exception)
+            {
+                return Request.CreateResponse(System.Net.HttpStatusCode.BadRequest, exception.Message);
+            }
+            catch (Exception exception)
             {
                 return Request.CreateResponse(System.Net.HttpStatusCode.InternalServerError, exception.Message);
             }
