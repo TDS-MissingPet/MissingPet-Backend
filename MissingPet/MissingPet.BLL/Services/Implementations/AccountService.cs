@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MissingPet.DataAccess.Entities;
 using MissingPet.DataAccess.Repositories;
 using MissingPet.Domain.Models;
@@ -22,14 +19,14 @@ namespace MissingPet.BLL.Services.Implementations
             _accountPhoneNumberRepository = accountPhoneNumberRepository;
         }
 
-        public void Add(Account account)
+        public int Add(Account account)
         {
             if(account == null)
             {
                 throw new ArgumentNullException(nameof(account));
             }
 
-            _accountRepository.Add(new AccountEntity()
+            var accountId = _accountRepository.Add(new AccountEntity()
             {
                 FirstName = account.FirstName,
                 LastName = account.LastName,
@@ -42,6 +39,8 @@ namespace MissingPet.BLL.Services.Implementations
                     }
                 }
             });
+
+            return accountId;
         }
     }
 }

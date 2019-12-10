@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.ModelBinding;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -23,6 +24,7 @@ namespace MissingPet.Controllers
 {
     [Authorize]
     [RoutePrefix("api/account")]
+    [EnableCors("*", "*", "*")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
@@ -95,14 +97,14 @@ namespace MissingPet.Controllers
                 return GetErrorResult(result);
             }
 
-            _accountService.Add(new Domain.Models.Account()
+            var accountId = _accountService.Add(new Domain.Models.Account()
             {
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 PhoneNumber = model.PhoneNumber
             });
 
-            return Ok();
+            return Ok(accountId);
         }
 
         protected override void Dispose(bool disposing)
