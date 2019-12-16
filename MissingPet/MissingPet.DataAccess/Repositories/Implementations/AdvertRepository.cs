@@ -27,7 +27,7 @@ namespace MissingPet.DataAccess.Repositories.Implementations
 
             var tags = new List<TagEntity>();
 
-            if (item.Tags.Any())
+            if (item.Tags?.Any() ?? false)
             {
                 foreach(var tag in item.Tags)
                 {

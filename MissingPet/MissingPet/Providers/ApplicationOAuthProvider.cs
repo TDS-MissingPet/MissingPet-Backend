@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using MissingPet.DataAccess.Repositories.Implementations;
 using MissingPet.Models;
 
 namespace MissingPet.Providers
@@ -30,6 +31,7 @@ namespace MissingPet.Providers
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
+            var userAccountRepo = new AccountRepository();
 
             ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
 
@@ -44,7 +46,10 @@ namespace MissingPet.Providers
             ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
                 CookieAuthenticationDefaults.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(user.UserName);
+            var userAccount = userAccountRepo.GetAll().FirstOrDefault(x => x.IdentityId == new Guid(user.Id));
+
+            AuthenticationProperties properties = CreateProperties(user.UserName, userAccount?.Id ?? 0);
+
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -86,11 +91,12 @@ namespace MissingPet.Providers
             return Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string userName)
+        public static AuthenticationProperties CreateProperties(string userName, int id)
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
-                { "userName", userName }
+                { "userName", userName },
+                { "id", id.ToString() }
             };
             return new AuthenticationProperties(data);
         }

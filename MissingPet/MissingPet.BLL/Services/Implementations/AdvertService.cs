@@ -33,12 +33,12 @@ namespace MissingPet.BLL.Services.Implementations
                 Reward = advert.Reward,
                 Title = advert.Title,
                 AccountId = advert.AccountId,
-                Tags = advert.Tags.Select(x => new TagEntity() { Value = x }).ToList(),
-                AdvertAddressDetails = new AdvertAddressDetailsEntity()
+                Tags = advert.Tags?.Select(x => new TagEntity() { Value = x }).ToList(),
+                AdvertAddressDetails = advert.AdvertAddressDetails != null ? new AdvertAddressDetailsEntity()
                 {
                     City = advert.AdvertAddressDetails.City,
                     Street = advert.AdvertAddressDetails.Street
-                }
+                } : null
             });
 
             return result;

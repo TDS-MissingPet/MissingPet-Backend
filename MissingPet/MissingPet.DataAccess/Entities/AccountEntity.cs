@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MissingPet.DataAccess.Entities
 {
@@ -9,6 +10,8 @@ namespace MissingPet.DataAccess.Entities
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+
+        public Guid IdentityId { get; set; }
 
         public virtual List<AdvertEntity> Advertisements { get; set; }
 

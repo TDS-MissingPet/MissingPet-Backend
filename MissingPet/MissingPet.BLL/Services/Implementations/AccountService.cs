@@ -28,6 +28,7 @@ namespace MissingPet.BLL.Services.Implementations
 
             var accountId = _accountRepository.Add(new AccountEntity()
             {
+                IdentityId = account.IdentityId,
                 FirstName = account.FirstName,
                 LastName = account.LastName,
                 AccountPhoneNumbers = new List<AccountPhoneNumberEntity>()

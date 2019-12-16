@@ -64,6 +64,10 @@
     <Compile Include="Migrations\201911281641038_Removed_Unnecessary_Foreign_Key.Designer.cs">
       <DependentUpon>201911281641038_Removed_Unnecessary_Foreign_Key.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912161445236_AddedGuid.cs" />
+    <Compile Include="Migrations\201912161445236_AddedGuid.Designer.cs">
+      <DependentUpon>201912161445236_AddedGuid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MissingPetContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911281641038_Removed_Unnecessary_Foreign_Key.resx">
       <DependentUpon>201911281641038_Removed_Unnecessary_Foreign_Key.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912161445236_AddedGuid.resx">
+      <DependentUpon>201912161445236_AddedGuid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

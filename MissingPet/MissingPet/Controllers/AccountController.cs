@@ -91,6 +91,7 @@ namespace MissingPet.Controllers
             var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            ApplicationUser createdUser = await UserManager.FindAsync(model.UserName, model.Password);
 
             if (!result.Succeeded)
             {
@@ -99,6 +100,7 @@ namespace MissingPet.Controllers
 
             var accountId = _accountService.Add(new Domain.Models.Account()
             {
+                IdentityId = new Guid(createdUser.Id),
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 PhoneNumber = model.PhoneNumber
